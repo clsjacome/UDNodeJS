@@ -55,8 +55,11 @@ app.get('/aboutHBS', (request,response) => {
 	});
 });
 
+//Heroku Port Env Var
+const port = process.env.PORT || 3000;
+
 
 //Start Web Server
-app.listen(3000, ()=>{
+app.listen(port, ()=>{
 	console.log('server is up in port 3000');
 }); //3000=port. Para hacer un request localhost:3000
