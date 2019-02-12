@@ -93,7 +93,7 @@ app.get('/DB', (request,response) => {
   if (err) throw err;
   for (let row of res.rows) {
 	console.log("/DB: " + JSON.stringify(row));
-	usrs = JSON.stringify(row);
+	users = JSON.stringify(row);
   }
   DBclient.end();
 });
