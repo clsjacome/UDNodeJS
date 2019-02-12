@@ -69,8 +69,18 @@ const client = new Client({
 client.connect();
 
 
-var users = 'empty'
 client.query('SELECT * FROM public."Users";', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
+
+var users = ''
+//Get all users when /DB loads and print them
+app.get('/DB', (request,response) => {
+	client.query('SELECT * FROM public."Users";', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
@@ -78,9 +88,7 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
   }
   client.end();
 });
-
-app.get('/DB', (request,response) => {
-	response.send("resp: " + users);
+	response.send("resp: <b><b>" + users);
 	
 });
 
