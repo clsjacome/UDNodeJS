@@ -77,7 +77,7 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
   client.end();
 });
 
-var users = 'jh';
+var users = '';
 //Get all users when /DB loads and prints them
 app.get('/DB', (request,response) => {
 	
@@ -93,13 +93,11 @@ app.get('/DB', (request,response) => {
   if (err) throw err;
   for (let row of res.rows) {
 	console.log("/DB: " + JSON.stringify(row));
-	users = JSON.stringify(row);
-	users = 'inFor';
-	console.log("EndForRun");
+	users = users + JSON.stringify(row) + '<br>';
   }
   DBclient.end();
 });
-	response.send("resp: " + users);
+	response.send("resp: <br><br>" + users);
 	
 });
 
