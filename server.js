@@ -82,6 +82,7 @@ console.log("UsersVar: " + users);
 //Get all users when /DB loads and prints them
 app.get('/DB', (request,response) => {
 	users = '';
+	console.log("UsersVar: " + users); 
 	const DBclient = new Client({
 	  connectionString: process.env.DATABASE_URL,
 	  ssl: true,
@@ -91,11 +92,11 @@ app.get('/DB', (request,response) => {
 	
 	
 	DBclient.query('SELECT * FROM public."Users";', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-	console.log("/DB: " + JSON.stringify(row));
-	users = users + JSON.stringify(row) + '<br>';
-	console.log("UsersVar: " + users); 
+		if (err) throw err;
+		for (let row of res.rows) {
+		console.log("/DB: " + JSON.stringify(row));
+		users = users + JSON.stringify(row) + '<br>';
+		console.log("UsersVar: " + users); 
   }
   DBclient.end();
 });
