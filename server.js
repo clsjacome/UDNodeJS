@@ -80,7 +80,7 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
 });
 
 app.get('/DB', (request,response) => {
-	response.send('Site created by Cha!');
+	response.send(users);
 	
 });
 
