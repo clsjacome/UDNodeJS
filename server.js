@@ -70,7 +70,7 @@ client.connect();
 
 
 var users = 'empty'
-client.query('SELECT * FROM public."Users";', (err, res) => {
+client.query('SELECT * FROM public."Usersss";', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
@@ -90,5 +90,5 @@ const port = process.env.PORT || 3000;
 
 //Start Web Server
 app.listen(port, ()=>{
-	console.log('server is up in port 3000');
+	console.log('server is up in port ${port}');
 }); //3000=port. Para hacer un request localhost:3000
