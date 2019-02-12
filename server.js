@@ -75,6 +75,7 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
+	var users = '' + users + JSON.stringify(row);
   }
   client.end();
 });
