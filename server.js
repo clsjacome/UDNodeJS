@@ -97,7 +97,7 @@ app.get('/DB', (request,response) => {
   }
   DBclient.end();
 });
-	response.send("resp: <br><br>" + usrs);
+	response.send("resp: <b><b>" + usrs);
 	
 });
 
