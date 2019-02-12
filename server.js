@@ -82,20 +82,20 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
 var users = ''
 app.get('/DB', (request,response) => {
 	
-	/*const DBclient = new Client({
+	const DBclient = new Client({
 	  connectionString: process.env.DATABASE_URL,
 	  ssl: true,
-	});*/
+	});
 
-	client.connect();
+	DBclient.connect();
 	
 	
-	client.query('SELECT * FROM public."Users";', (err, res) => {
+	DBclient.query('SELECT * FROM public."Users";', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
 	users = users + '<b>' + JSON.stringify(row);
   }
-  client.end();
+  DBclient.end();
 });
 	response.send("resp: <b><b>" + users);
 	
