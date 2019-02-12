@@ -77,12 +77,11 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
   client.end();
 });
 
-var users = '';
+
 console.log("UsersVar: " + users); 
 //Get all users when /DB loads and prints them
 app.get('/DB', (request,response) => {
-	users = '';
-	console.log("UsersVar: " + users); 
+	var users = '';
 	const DBclient = new Client({
 	  connectionString: process.env.DATABASE_URL,
 	  ssl: true,
@@ -98,10 +97,8 @@ app.get('/DB', (request,response) => {
 		users = users + JSON.stringify(row) + '<br>';
 		console.log("UsersVar: " + users); 
   }
-  console.log("beforeDBclose: " + users);
   DBclient.end();
-  console.log("afterDBclose: " + users);
-  console.log("beforeResp: " + users);
+
   //response aquí para que no mande resp antes de acabar query (asnc)
   response.send("resp: <br><br>" + users);
 });
