@@ -93,11 +93,11 @@ app.get('/DB', (request,response) => {
   if (err) throw err;
   for (let row of res.rows) {
 	console.log("DB: " + JSON.stringify(row));
-	usrs = usrs + JSON.stringify(row);
+	usrs = JSON.stringify(row);
   }
   DBclient.end();
 });
-	response.send("resp: <b><b>" + usrs);
+	response.send("resp: " + usrs);
 	
 });
 
