@@ -69,18 +69,18 @@ const client = new Client({
 client.connect();
 
 
-
+var users = 'empty'
 client.query('SELECT * FROM public."Users";', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
-	var users = 'b' + users + JSON.stringify(row);
+	users = users + '<b>' + JSON.stringify(row);
   }
   client.end();
 });
 
 app.get('/DB', (request,response) => {
-	response.send(users);
+	response.send("resp: " + users);
 	
 });
 
