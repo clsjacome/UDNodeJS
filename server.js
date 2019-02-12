@@ -5,7 +5,7 @@ const hbs = require('hbs');
 
 var app = express();
 
-var HTML = '<h1>Hello Express World!</h1>';
+var HTML = '<h1>Hello Express World!!!</h1>';
 var aboutJson = {
 	name:'Cha',
 	age: 27,
@@ -55,8 +55,7 @@ app.get('/aboutHBS', (request,response) => {
 	});
 });
 
-//Heroku Port Env Var
-const port = process.env.PORT || 3000;
+
 
 
 //Conection to DB
@@ -85,6 +84,9 @@ app.get('/DB', (request,response) => {
 	
 });
 
+
+//Heroku Port Env Var
+const port = process.env.PORT || 3000;
 
 //Start Web Server
 app.listen(port, ()=>{
