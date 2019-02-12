@@ -94,7 +94,6 @@ app.get('/DB', (request,response) => {
 		for (let row of res.rows) {
 		console.log("/DB: " + JSON.stringify(row));
 		users = users + JSON.stringify(row) + '<br>';
-		console.log("UsersVar: " + users); 
   }
   DBclient.end();
 
