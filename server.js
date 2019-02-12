@@ -82,10 +82,10 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
 var users = ''
 app.get('/DB', (request,response) => {
 	
-	client = new Client({
+	/*const DBclient = new Client({
 	  connectionString: process.env.DATABASE_URL,
 	  ssl: true,
-	});
+	});*/
 
 	client.connect();
 	
