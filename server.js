@@ -80,6 +80,11 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
   client.end();
 });
 
+app.get('/DB', (request,response) => {
+	response.send('Site created by Cha!');
+	
+});
+
 
 //Start Web Server
 app.listen(port, ()=>{
