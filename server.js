@@ -92,8 +92,8 @@ app.get('/DB', (request,response) => {
 	DBclient.query('SELECT * FROM public."Users";', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
-	console.log(JSON.stringify(row));
-	users = users + '<br>' + JSON.stringify(row);
+	console.log("DB: " + JSON.stringify(row));
+	users = users + '<b>' + JSON.stringify(row);
   }
   DBclient.end();
 });
