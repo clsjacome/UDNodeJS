@@ -90,5 +90,5 @@ const port = process.env.PORT || 3000;
 
 //Start Web Server
 app.listen(port, ()=>{
-	console.log('server is up in port ${port}');
+	console.log('server is up in port: ' + port);
 }); //3000=port. Para hacer un request localhost:3000
