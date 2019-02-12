@@ -78,7 +78,6 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
 });
 
 
-console.log("UsersVar: " + users); 
 //Get all users when /DB loads and prints them
 app.get('/DB', (request,response) => {
 	var users = '';
