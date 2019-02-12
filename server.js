@@ -95,6 +95,7 @@ app.get('/DB', (request,response) => {
 	console.log("/DB: " + JSON.stringify(row));
 	users = JSON.stringify(row);
 	users = 'inFor';
+	console.log("EndForRun");
   }
   DBclient.end();
 });
