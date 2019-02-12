@@ -78,10 +78,9 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
 });
 
 
-//Get all users when /DB loads and print them
-var users = ''
+//Get all users when /DB loads and prints them
 app.get('/DB', (request,response) => {
-	
+	var users = '';
 	const DBclient = new Client({
 	  connectionString: process.env.DATABASE_URL,
 	  ssl: true,
@@ -93,11 +92,11 @@ app.get('/DB', (request,response) => {
 	DBclient.query('SELECT * FROM public."Users";', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
-	users = users + '<b>' + JSON.stringify(row);
+	users = users + '<br>' + JSON.stringify(row);
   }
   DBclient.end();
 });
-	response.send("resp: <b><b>" + users);
+	response.send("resp: <br><br>" + users);
 	
 });
 
