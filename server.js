@@ -77,13 +77,22 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
   client.end();
 });
 
-var users = ''
+
 //Get all users when /DB loads and print them
+var users = ''
 app.get('/DB', (request,response) => {
+	
+	client = new Client({
+	  connectionString: process.env.DATABASE_URL,
+	  ssl: true,
+	});
+
+	client.connect();
+	
+	
 	client.query('SELECT * FROM public."Users";', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
-    console.log(JSON.stringify(row));
 	users = users + '<b>' + JSON.stringify(row);
   }
   client.end();
