@@ -101,9 +101,11 @@ app.get('/DB', (request,response) => {
   console.log("beforeDBclose: " + users);
   DBclient.end();
   console.log("afterDBclose: " + users);
+  console.log("beforeResp: " + users);
+  //response aquí para que no mande resp antes de acabar query (asnc)
+  response.send("resp: <br><br>" + users);
 });
-	console.log("beforeResp: " + users);
-	response.send("resp: <br><br>" + users);
+	
 	
 });
 
