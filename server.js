@@ -98,8 +98,11 @@ app.get('/DB', (request,response) => {
 		users = users + JSON.stringify(row) + '<br>';
 		console.log("UsersVar: " + users); 
   }
+  console.log("beforeDBclose: " + users);
   DBclient.end();
+  console.log("afterDBclose: " + users);
 });
+	console.log("beforeResp: " + users);
 	response.send("resp: <br><br>" + users);
 	
 });
