@@ -59,6 +59,27 @@ app.get('/aboutHBS', (request,response) => {
 const port = process.env.PORT || 3000;
 
 
+//Conection to DB
+const { Client } = require('pg');
+
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
+
+client.connect();
+
+
+
+client.query('SELECT * FROM public."Users";', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end();
+});
+
+
 //Start Web Server
 app.listen(port, ()=>{
 	console.log('server is up in port 3000');
