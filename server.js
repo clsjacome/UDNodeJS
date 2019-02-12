@@ -45,7 +45,7 @@ hbs.registerHelper('currDate', ()=> {
 
 //Helper as a function with a param
 hbs.registerHelper('screamIt',(textToScream)=>{
-	return textToScream.toUpperCase();
+	return '<b>'+textToScream.toUpperCase()+'</b>';
 }); 
 
 //Handlebars
