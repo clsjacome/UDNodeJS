@@ -80,7 +80,7 @@ client.query('SELECT * FROM public."Users";', (err, res) => {
 
 //Get all users when /DB loads and prints them
 app.get('/DB', (request,response) => {
-	var users = '';
+	var usrs = '';
 	const DBclient = new Client({
 	  connectionString: process.env.DATABASE_URL,
 	  ssl: true,
@@ -93,11 +93,11 @@ app.get('/DB', (request,response) => {
   if (err) throw err;
   for (let row of res.rows) {
 	console.log("DB: " + JSON.stringify(row));
-	users = users + '<b>' + JSON.stringify(row);
+	usrs = usrs + JSON.stringify(row);
   }
   DBclient.end();
 });
-	response.send("resp: <br><br>" + users);
+	response.send("resp: <br><br>" + usrs);
 	
 });
 
